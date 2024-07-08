@@ -161,6 +161,9 @@ CSR, the explicit write is done instead of the update from the side effect.
 In particular, a value
 written to `instret` by one instruction will be the value read by the
 following instruction.
+If the CSR access instruction writes to a register that is wider than XLEN,
+such as `instret` on RV32, the update from the side effect is suppressed
+for all bits of the wider register, not just the bits written.
 
 The assembler pseudoinstruction to read a CSR, CSRR _rd, csr_, is
 encoded as CSRRS _rd, csr, x0_. The assembler pseudoinstruction to write
