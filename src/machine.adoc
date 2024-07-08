@@ -1566,11 +1566,11 @@ counters but are not concerned with obfuscating the underlying hardware
 counters, the counters can be directly exposed to lower privilege modes.
 ====
 
-The `cycle`, `instret`, and `hpmcountern` CSRs are read-only shadows of
-`mcycle`, `minstret`, and `mhpmcounter n`, respectively. The `time` CSR
+The `cycle`, `instret`, and `hpmcounter__n__` CSRs are read-only shadows of
+`mcycle`, `minstret`, and `mhpmcounter__n__`, respectively. The `time` CSR
 is a read-only shadow of the memory-mapped `mtime` register.
-Analogously, on RV32I the `cycleh`, `instreth` and `hpmcounternh` CSRs
-are read-only shadows of `mcycleh`, `minstreth` and `mhpmcounternh`,
+Analogously, on RV32I the `cycleh`, `instreth` and `hpmcounter__n__h` CSRs
+are read-only shadows of `mcycleh`, `minstreth` and `mhpmcounter__n__h`,
 respectively. On RV32I the `timeh` CSR is a read-only shadow of the
 upper 32 bits of the memory-mapped `mtime` register, while `time`
 shadows only the lower 32 bits of `mtime`.
@@ -1600,8 +1600,8 @@ counters increment; their accessibility is not affected by the setting
 of this register.
 
 When the CY, IR, or HPM__n__ bit in the `mcountinhibit` register is clear,
-the `mcycle`, `minstret`, or `mhpmcountern` register increments as usual.
-When the CY, IR, or HPM_n_ bit is set, the corresponding counter does
+the `mcycle`, `minstret`, or `mhpmcounter__n__` register increments as usual.
+When the CY, IR, or HPM__n__ bit is set, the corresponding counter does
 not increment.
 
 The `mcycle` CSR may be shared between harts on the same core, in which
